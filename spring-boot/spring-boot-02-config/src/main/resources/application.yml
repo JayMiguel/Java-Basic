@@ -1,5 +1,10 @@
-server:
-  port: 8081
+#激活Profile
+#方式一：在配置文件中指定spring.profiles.active的值
+#在yml文件中的配置如下，---为文档块语法
+#会优先找application-dev.properties/yml激活，找不到再使用下面的文档块配置
+spring:
+  profiles:
+    active: dev
 
 mail:
   address: asdf12345@163.com
@@ -7,3 +12,22 @@ mail:
 dog:
   name: shadu
   age: 2
+
+
+---
+
+
+spring:
+  profiles: dev #指定环境名称
+
+server:
+  port: 8083
+
+---
+
+
+spring:
+  profiles: prod #指定环境名称
+
+server:
+  port: 8084
